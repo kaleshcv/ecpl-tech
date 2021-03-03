@@ -1,0 +1,67 @@
+{% extends 'base1.html' %}
+{% block main %}
+{% load static %}
+
+<div class="container-lg" style="margin-top:100px;margin-bottom:100px;">
+    <h2>Add CPU</h2>
+       <div class="row">
+
+           <div class="col-md-12">
+               
+               <form action="/add-inv-cpu" method="POST" enctype="multipart/form-data">
+                   {% csrf_token %}
+                   <div class="row">
+                       <div class="col-md-4">
+                   <label for="">Serial No</label>
+                   <input type="text" name="serial_no" class="form-control">
+                   <label for="">ECPL Tag Name</label>
+                   <input type="text" name="ecpl_tag" class="form-control">
+
+                   <label for="">In Date</label>
+                   <input type="date" name="in_date" class="form-control">
+                   <label for="">Processor</label>
+                   <input type="text" name="processor" class="form-control">
+                   <label for="">Ram</label>
+                   <input type="text" name="ram" class="form-control">
+
+                    <label for="">Hard Disc Type</label>
+                   <select name="hard_disc_type" id="" class="form-control">
+                       <option value="SSD">SSD</option>
+                       <option value="HDD">HDD</option>
+                       <option value="Msata">MSata</option>
+                   </select>
+                              </div>
+                       <div class="col-md-2">
+
+                       </div>
+                       <div class="col-md-4">
+                   <label for="">Hard Disc Size</label>
+                   <input type="text" name="hard_disc_size" class="form-control">
+                    <label for="">Hard Disc Serial No</label>
+                   <input type="text" name="hard_disc_serial" class="form-control">
+
+                   <label for="">System Name</label>
+                   <input type="text" name="system_name" class="form-control">
+                   <label for="">Make</label>
+                   <input type="text" name="make" class="form-control">
+                   <label for="">Model</label>
+                   <input type="text" name="model" class="form-control">
+                   <label for="">Vendor</label>
+                   <select name="vendor" id="" class="form-control">
+                       <option value="concovity">Concovity</option>
+                       <option value="RAC">RAC</option>
+                       <option value="Wingor-TT">Wingor-TT</option>
+                       <option value="other">Other</option>
+                   </select>
+                           <br>
+                           <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+                        </div>
+
+
+                    </div>
+
+               </form>
+           </div>
+       </div>
+</div>
+{% endblock %}

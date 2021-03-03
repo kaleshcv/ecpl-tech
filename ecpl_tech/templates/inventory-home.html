@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+{% block main %}
+{% load static %}
+
+<section>
+    <div class="container-lg" style="margin-top:100px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                      <img src="..." class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Add Inventory</h5>
+                          <p><a href="/add-inv-cpu">CPU</a></p>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                      <img src="..." class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Inventory - Report</h5>
+                          <p><a href="/inv-report-cpu">CPU</a></p>
+                      </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block main %}
+{% load static %}
+
+<div class="container-lg" style="margin-top:100px;">
+        <div>
+            <div class="col-md-3">
+                {% load crispy_forms_tags %}
+                <div>
+                    <h3>Login</h3>
+                    <form class="login-form" action="/loginview" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form|crispy}}
+
+                    <input class="btn btn-info" type="submit" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}
