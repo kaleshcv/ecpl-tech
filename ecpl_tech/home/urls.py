@@ -11,13 +11,17 @@ urlpatterns = [
 
 
     path('add-inv-cpu',addInvCpu),
+    path('add-inv-desktop',addInvDesktop),
 
-    path('inv-report-cpu',invReportCPU),
+    path('inv-report/<int:pk>',invReport),
 
 
-    path('assign-inv-cpu/<int:pk>',assignInvCpu),
-    path('service-inv-cpu/<int:pk>',serviceCPU),
-
+    path('assign-inv-cpu/<int:iid>,<int:pk>',assignInvCpu),
+    path('service-inv-cpu/<int:iid>,<int:pk>',serviceCPU),
+    path('return-inv-cpu/<int:pk>',returnCPU),
+    path('return-from-agent',returnFromAgent),
+    path('return-submit',returnSubmit),
+    path('return-from-service/<int:pk>',retunFromService),
 
 
 ]

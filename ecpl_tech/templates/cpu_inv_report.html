@@ -2,12 +2,12 @@
 {% block main %}
 {% load static %}
 <div class="container-lg" style="margin-top:100px;margin-bottom:100px;">
-        <h2>Inv Report CPU</h2>
+        <h2>Inv Report</h2>
     <br>
     <div>
         <div class="row">
             <div class="col-md-6">
-                <form action="/inv-report-cpu" method="POST" enctype="multipart/form-data">
+                <form action="/inv-report/{{id}}" method="POST" enctype="multipart/form-data">
                    {% csrf_token %}
                     <label for="">Serial NO</label>
                     <input type="text" name="serial_no" class="form-control" style="width: 300px">
@@ -33,52 +33,67 @@
        <div class="row">
         <table class="table">
             <tr>
+                <th>Item</th>
                 <th>Serial NO</th>
                 <th>status</th>
-                <th>make</th>
-                <th>model</th>
-                <th>processor</th>
-                <th>Ram</th>
+
+
             </tr>
             <tr>
+                <td>{{cpu.item_name}}</td>
                 <td>{{cpu.serial_no}}</td>
                 {% if cpu.in_stock == True %}
                 <td>In Stock</td>
                 {% elif cpu.assigned == True %}
-                <td>Assigned</td>
+
                 {% elif cpu.service == True %}
+                <td>{{cpu.emp_id}}</td>
                 <td>Service</td>
+                {% elif cpu.out == True %}
+                <td>Returned to Vendor</td>
                 {% else %}
-                <td>Not Available</td>
+                <td>NA</td>
                 {% endif %}
-                <td>{{cpu.make}}</td>
-                <td>{{cpu.model}}</td>
-                <td>{{cpu.processor}}</td>
-                <td>{{cpu.ram}}</td>
+
+
                 {% if cpu.in_stock == True %}
-                <td><a href="/assign-inv-cpu/{{cpu.id}}">Assign to Employee</a></td>
-                <td><a href="/service-inv-cpu/{{cpu.id}}">Service</a></td>
+                <td><a href="/assign-inv-cpu/{{cpu.item_id}},{{cpu.id}}">Assign to Employee</a></td>
+                <td><a href="/service-inv-cpu/{{cpu.item_id}},{{cpu.id}}">Service</a></td>
+                <td><a href="/return-inv-cpu/{{cpu.id}}">Return to Vendor</a></td>
+                {% endif %}
+                {% if cpu.service == True %}
+                <td><a href="/return-from-service/{{cpu.id}}">Add to stock</a></td>
                 {% endif %}
             </tr>
             {% for cpu in cpu_obj_all %}
             <tr>
+                <td>{{cpu.item_name}}</td>
                 <td>{{cpu.serial_no}}</td>
                 {% if cpu.in_stock == True %}
                 <td>In Stock</td>
                 {% elif cpu.assigned == True %}
                 <td>Assigned</td>
+
                 {% elif cpu.service == True %}
                 <td>Service</td>
+                 {% elif cpu.out == True %}
+                <td>Returned to Vendor</td>
                 {% else %}
-                <td>Not Available</td>
+                <td>NA</td>
                 {% endif %}
-                <td>{{cpu.make}}</td>
-                <td>{{cpu.model}}</td>
-                <td>{{cpu.processor}}</td>
-                <td>{{cpu.ram}}</td>
+
                 {% if cpu.in_stock == True %}
-                <td><a href="/assign-inv-cpu/{{cpu.id}}">Assign to Employee</a></td>
-                <td><a href="/service-inv-cpu/{{cpu.id}}">Service</a></td>
+                <td>
+
+                    <a href="/assign-inv-cpu/{{cpu.item_id}},{{cpu.id}}">Assign to Employee</a>
+
+                </td>
+
+                <td><a href="/service-inv-cpu/{{cpu.item_id}},{{cpu.id}}">Service</a></td>
+                <td><a href="/return-inv-cpu/{{cpu.id}}">Return to Vendor</a></td>
+                {% endif %}
+                {% if cpu.service == True %}
+                <td><a href="/return-from-service/{{cpu.id}}">Add to stock</a></td>
                 {% endif %}
             </tr>
             {% endfor %}

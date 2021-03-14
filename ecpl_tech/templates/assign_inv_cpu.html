@@ -8,7 +8,7 @@
 
            <div class="col-md-3">
 
-               <form action="/assign-inv-cpu/{{cpu_obj.id}}" method="POST" enctype="multipart/form-data">
+               <form action="/assign-inv-cpu/{{cpu_obj.item_id}},{{cpu_obj.id}}" method="POST" enctype="multipart/form-data">
                    {% csrf_token %}
 
 
@@ -34,17 +34,11 @@
                    <hr>
                    <label for="">Serial NO</label>
                    <input type="text" name="serial_no" value="{{cpu_obj.serial_no}}" class="form-control" readonly>
-                   <label for="">Make</label>
-                   <input type="text" value="{{cpu_obj.make}}" class="form-control" readonly>
-                   <label for="">Model</label>
-                   <input type="text" value="{{cpu_obj.model}}" class="form-control" readonly>
-                   <label for="">ECPL Tag Name</label>
-                   <input type="text" value="{{cpu_obj.ecpl_tag_name}}" class="form-control" readonly>
-                   <label for="">Ram</label>
-                   <input type="text" value="{{cpu_obj.ram}}" class="form-control" readonly>
-                   <label for="">Processor</label>
-                   <input type="text" value="{{cpu_obj.processor}}" class="form-control" readonly>
-                   <input type="hidden" value="cpu" name="item">
+                   <label for="">Item</label>
+                   <input type="text" value="{{cpu_obj.item_name}}" class="form-control" readonly>
+
+                   <input type="hidden" value="{{cpu_obj.item_name}}" name="item">
+
                    <br>
                    <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
 
