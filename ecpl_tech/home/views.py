@@ -94,11 +94,267 @@ def addInvDesktop(request):
         form = forms.DesktopCreation()
         return render(request, 'add_inv_desktop.html', {'form': form})
 
+def addInvMonitor(request):
+    if request.method=='POST':
+
+        monitor_form = forms.MonitorCreation(request.POST, request.FILES)
+
+        if monitor_form.is_valid():
+
+            df = monitor_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.MonitorCreation()
+        return render(request, 'add_inv_monitor.html', {'form': form})
+
+def addInvLaptop(request):
+    if request.method=='POST':
+
+        item_form = forms.LaptopCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.LaptopCreation()
+        return render(request, 'add_inv_laptop.html', {'form': form})
+
+
+def addFortiget(request):
+    if request.method=='POST':
+
+        item_form = forms.FortigetCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.FortigetCreation()
+        return render(request, 'add_inv_fortiget.html', {'form': form})
+
+def addRouter(request):
+    if request.method=='POST':
+
+        item_form = forms.RouterCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.RouterCreation()
+        return render(request, 'add_inv_router.html', {'form': form})
+
+def addSwitch(request):
+    if request.method=='POST':
+
+        item_form = forms.SwitchCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.SwitchCreation()
+        return render(request, 'add_inv_switch.html', {'form': form})
+
+def addAccess(request):
+    if request.method=='POST':
+
+        item_form = forms.AccessCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.AccessCreation()
+        return render(request, 'add_inv_access.html', {'form': form})
+
+def addMouse(request):
+    if request.method=='POST':
+
+        item_form = forms.MouseCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.MouseCreation()
+        return render(request, 'add_inv_mouse.html', {'form': form})
+
+def addKeyboard(request):
+    if request.method=='POST':
+
+        item_form = forms.KeyboardCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.KeyboardCreation()
+        return render(request, 'add_inv_keyboard.html', {'form': form})
+
+def addPendrive(request):
+    if request.method=='POST':
+
+        item_form = forms.PendriveCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.PendriveCreation()
+        return render(request, 'add_inv_pendrive.html', {'form': form})
+
+
+def addPrinter(request):
+    if request.method=='POST':
+
+        item_form = forms.PrinterCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.PrinterCreation()
+        return render(request, 'add_inv_printer.html', {'form': form})
+
+def addExternalDvd(request):
+    if request.method=='POST':
+
+        item_form = forms.ExternalDvdCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.ExternalDvdCreation()
+        return render(request, 'add_inv_extdvd.html', {'form': form})
+
+def addCctv(request):
+    if request.method=='POST':
+
+        item_form = forms.CctvCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.CctvCreation()
+        return render(request, 'add_inv_cctv.html', {'form': form})
+
+def addProjector(request):
+    if request.method=='POST':
+
+        item_form = forms.ProjectorCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.ProjectorCreation()
+        return render(request, 'add_inv_projector.html', {'form': form})
+
+def addConverter(request):
+    if request.method=='POST':
+
+        item_form = forms.ConvertorCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.ConvertorCreation()
+        return render(request, 'add_inv_converter.html', {'form': form})
+
+def addBiometric(request):
+    if request.method=='POST':
+
+        item_form = forms.BiometricCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.BiometricCreation()
+        return render(request, 'add_inv_biometric.html', {'form': form})
+
+def addExternalHdd(request):
+    if request.method=='POST':
+
+        item_form = forms.ExternalHddCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.ExternalHddCreation()
+        return render(request, 'add_inv_externalhdd.html', {'form': form})
+
+def addSpeaker(request):
+    if request.method=='POST':
+
+        item_form = forms.SpeakerCreation(request.POST, request.FILES)
+
+        if item_form.is_valid():
+
+            df = item_form.save(commit=False)
+            df.save()
+            # login(request,user)
+            return redirect('/inventory-home')
+    else:
+        form = forms.SpeakerCreation()
+        return render(request, 'add_inv_speaker.html', {'form': form})
+
 
 def invReport(request,pk):
 
     if pk == 1:
-
         if request.method == 'POST':
                 serial_no=request.POST['serial_no']
                 cpu_obj=Cpu.objects.filter(serial_no=serial_no)
@@ -111,9 +367,8 @@ def invReport(request,pk):
                     return render(request, 'cpu_inv_report.html')
         else:
             cpu_obj_all=Cpu.objects.all()
-            data={'cpu_obj_all':cpu_obj_all}
+            data={'cpu_obj_all':cpu_obj_all,'id':1}
             return render(request,'cpu_inv_report.html',data)
-
 
     elif pk == 2:
         if request.method == 'POST':
@@ -128,7 +383,280 @@ def invReport(request,pk):
                     return render(request, 'cpu_inv_report.html')
         else:
             desk_obj_all=Desktop.objects.all()
-            data={'cpu_obj_all':desk_obj_all}
+            data={'cpu_obj_all':desk_obj_all,'id':2}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 3:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Monitor.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Monitor.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':3}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Monitor.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':3}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 4:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Laptop.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Laptop.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':4}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Laptop.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':4}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 5:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Fortiget.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Fortiget.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':5}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Fortiget.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':5}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 6:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Router.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Router.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':6}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Router.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':6}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 7:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Switch.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Switch.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':7}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Switch.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':7}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 8:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=AccessControler.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = AccessControler.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':8}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=AccessControler.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':8}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 9:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Printer.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Printer.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':9}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Printer.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':9}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 10:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Mouse.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Mouse.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':10}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Mouse.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':10}
+            return render(request,'cpu_inv_report.html',data)
+
+
+    elif pk == 11:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Keyboard.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Keyboard.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':11}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Keyboard.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':11}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 12:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Pendrive.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Pendrive.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':12}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Pendrive.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':12}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 13:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=DvdWriter.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = DvdWriter.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':13}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=DvdWriter.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':13}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 14:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Cctv.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Cctv.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':14}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Cctv.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':14}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 15:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Converters.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Converters.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':15}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Converters.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':15}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 16:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Projector.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Projector.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':16}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Projector.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':16}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 17:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Biometric.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Biometric.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':17}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Biometric.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':17}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 18:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=ExternalHardDisc.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = ExternalHardDisc.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':18}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=ExternalHardDisc.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':18}
+            return render(request,'cpu_inv_report.html',data)
+
+    elif pk == 19:
+        if request.method == 'POST':
+                serial_no=request.POST['serial_no']
+                desk_obj=Speaker.objects.filter(serial_no=serial_no)
+                if desk_obj.count() >0 :
+                    desk_obj = Speaker.objects.get(serial_no=serial_no)
+                    data={'cpu':desk_obj,'id':19}
+                    return render(request,'cpu_inv_report.html',data)
+                else:
+                    messages.info(request,'Not Found !!!')
+                    return render(request, 'cpu_inv_report.html')
+        else:
+            desk_obj_all=Speaker.objects.all()
+            data={'cpu_obj_all':desk_obj_all,'id':19}
             return render(request,'cpu_inv_report.html',data)
 
 
@@ -161,6 +689,41 @@ def assignInvCpu(request,iid,pk):
             changeStatus(Cpu)
         elif item=='DESKTOP':
             changeStatus(Desktop)
+        elif item=='MONITOR':
+            changeStatus(Monitor)
+        elif item=='LAPTOP':
+            changeStatus(Laptop)
+        elif item=='FORTIGET':
+            changeStatus(Fortiget)
+        elif item=='ROUTER':
+            changeStatus(Router)
+        elif item=='SWITCH':
+            changeStatus(Switch)
+        elif item=='ACCESS':
+            changeStatus(AccessControler)
+        elif item=='PRINTER':
+            changeStatus(Printer)
+        elif item=='MOUSE':
+            changeStatus(Mouse)
+        elif item=='KEYBOARD':
+            changeStatus(Keyboard)
+        elif item=='PENDRIVE':
+            changeStatus(Pendrive)
+        elif item=='DVD':
+            changeStatus(DvdWriter)
+        elif item=='CCTV':
+            changeStatus(Cctv)
+        elif item=='CONVERTERS':
+            changeStatus(Converters)
+        elif item=='PROJECTOR':
+            changeStatus(Projector)
+        elif item=='BIOMETRIC':
+            changeStatus(Biometric)
+        elif item=='EHD':
+            changeStatus(ExternalHardDisc)
+        elif item=='SPEAKER':
+            changeStatus(Speaker)
+
 
         return redirect('/inventory-home')
 
@@ -175,6 +738,76 @@ def assignInvCpu(request,iid,pk):
             cpu_obj = Desktop.objects.get(id=pk)
             data = {'cpu_obj': cpu_obj}
             return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==3:
+            cpu_obj = Monitor.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+
+        elif item_id ==4:
+            cpu_obj = Laptop.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==5:
+            cpu_obj = Fortiget.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==6:
+            cpu_obj = Router.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==7:
+            cpu_obj = Switch.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==8:
+            cpu_obj = AccessControler.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==9:
+            cpu_obj = Printer.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==10:
+            cpu_obj = Mouse.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==11:
+            cpu_obj = Keyboard.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==12:
+            cpu_obj = Pendrive.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==13:
+            cpu_obj = DvdWriter.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==14:
+            cpu_obj = Cctv.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==15:
+            cpu_obj = Converters.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==16:
+            cpu_obj = Projector.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==17:
+            cpu_obj = Biometric.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==18:
+            cpu_obj = ExternalHardDisc.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+        elif item_id ==19:
+            cpu_obj = Speaker.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'assign_inv_cpu.html', data)
+
 
 
 
@@ -203,6 +836,43 @@ def serviceCPU(request,iid,pk):
             changeStatus(Cpu)
         elif item=='DESKTOP':
             changeStatus(Desktop)
+        elif item=='MONITOR':
+            changeStatus(Monitor)
+        elif item=='LAPTOP':
+            changeStatus(Laptop)
+        elif item=='FORTIGET':
+            changeStatus(Fortiget)
+        elif item=='ROUTER':
+            changeStatus(Router)
+        elif item=='SWITCH':
+            changeStatus(Switch)
+        elif item=='ACCESS':
+            changeStatus(AccessControler)
+        elif item=='PRINTER':
+            changeStatus(Printer)
+        elif item=='MOUSE':
+            changeStatus(Mouse)
+        elif item=='KEYBOARD':
+            changeStatus(Keyboard)
+        elif item=='PENDRIVE':
+            changeStatus(Pendrive)
+        elif item=='DVD':
+            changeStatus(DvdWriter)
+        elif item=='CCTV':
+            changeStatus(Cctv)
+        elif item=='CONVERTERS':
+            changeStatus(Converters)
+        elif item=='PROJECTOR':
+            changeStatus(Projector)
+        elif item=='BIOMETRIC':
+            changeStatus(Biometric)
+        elif item=='EHD':
+            changeStatus(ExternalHardDisc)
+        elif item=='SPEAKER':
+            changeStatus(Speaker)
+
+
+
 
         return redirect('/inventory-home')
 
@@ -217,6 +887,75 @@ def serviceCPU(request,iid,pk):
             cpu_obj = Desktop.objects.get(id=pk)
             data = {'cpu_obj': cpu_obj}
             return render(request, 'service-cpu.html', data)
+        elif item_id == 3:
+            cpu_obj = Monitor.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id == 4:
+            cpu_obj = Laptop.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id == 5:
+            cpu_obj = Fortiget.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==6:
+            cpu_obj = Router.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==7:
+            cpu_obj = Switch.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==8:
+            cpu_obj = AccessControler.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==9:
+            cpu_obj = Printer.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==10:
+            cpu_obj = Mouse.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==11:
+            cpu_obj = Keyboard.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==12:
+            cpu_obj = Pendrive.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==13:
+            cpu_obj = DvdWriter.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==14:
+            cpu_obj = Cctv.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==15:
+            cpu_obj = Converters.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==16:
+            cpu_obj = Projector.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==17:
+            cpu_obj = Biometric.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==18:
+            cpu_obj = ExternalHardDisc.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+        elif item_id ==19:
+            cpu_obj = Speaker.objects.get(id=pk)
+            data = {'cpu_obj': cpu_obj}
+            return render(request, 'service-cpu.html', data)
+
 
 
 def returnCPU(request,pk):
@@ -255,17 +994,24 @@ def returnFromAgent(request):
         serial=request.POST['serial_no']
         emp_id=request.POST['emp_id']
 
-
         item=Assigned.objects.filter(emp_id=emp_id) | Assigned.objects.filter(item_serial=serial)
-        data={'item':item}
 
-        return render(request,'agent-return.html',data)
+        if item.count()>0:
+
+
+            data={'item':item}
+
+            return render(request,'agent-return.html',data)
+        else:
+            data = {'item': item}
+            messages.info(request, 'Not Found !!!')
+            return render(request, 'agent-return.html', data)
+
 
     item_obj=Assigned.objects.all()
     data={'items':item_obj}
 
     return render(request,'agent-return.html',data)
-
 
 
 def returnSubmit(request):
@@ -274,13 +1020,64 @@ def returnSubmit(request):
 
         serial=request.POST['serial_no']
         emp_id=request.POST['emp_id']
+        item=request.POST['item']
 
-        item=Assigned.objects.get(emp_id=emp_id,item_serial=serial)
-        item.return_status=True
-        item.save()
-        cpu=Cpu.objects.get(serial_no=serial)
-        cpu.in_stock=True
-        cpu.save()
+        print(item)
+
+        item_obj=Assigned.objects.get(emp_id=emp_id,item_serial=serial)
+
+        item_obj.return_status=True
+        item_obj.save()
+
+        def changeStatus(item):
+            obj = item.objects.get(serial_no=serial)
+            print(obj.assigned)
+
+            obj.in_stock = True
+            obj.assigned=False
+            obj.save()
+
+
+        if item=='CPU':
+           changeStatus(Cpu)
+        elif item=='DESKTOP':
+            changeStatus(Desktop)
+        elif item=='MONITOR':
+            changeStatus(Monitor)
+        elif item=='LAPTOP':
+            changeStatus(Laptop)
+        elif item=='FORTIGET':
+            changeStatus(Fortiget)
+        elif item=='ROUTER':
+            changeStatus(Router)
+        elif item=='SWITCH':
+            changeStatus(Switch)
+        elif item=='ACCESS':
+            changeStatus(AccessControler)
+        elif item=='PRINTER':
+            changeStatus(Printer)
+        elif item=='MOUSE':
+            changeStatus(Mouse)
+        elif item=='KEYBOARD':
+            changeStatus(Keyboard)
+        elif item=='PENDRIVE':
+            changeStatus(Pendrive)
+        elif item=='DVD':
+            changeStatus(DvdWriter)
+        elif item=='CCTV':
+
+            changeStatus(Cctv)
+        elif item=='CONVERTERS':
+            changeStatus(Converters)
+        elif item=='PROJECTOR':
+            changeStatus(Projector)
+        elif item=='BIOMETRIC':
+            changeStatus(Biometric)
+        elif item=='EHD':
+            changeStatus(ExternalHardDisc)
+        elif item=='SPEAKER':
+            changeStatus(Speaker)
+
 
         messages.info(request, 'Returned successfully !')
 
@@ -291,6 +1088,7 @@ def retunFromService(request,pk):
     if request.method=='POST':
 
         serial = request.POST['serial_no']
+
 
         cpu = Cpu.objects.get(serial_no=serial)
         cpu.service= False

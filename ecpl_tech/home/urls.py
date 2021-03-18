@@ -12,6 +12,30 @@ urlpatterns = [
 
     path('add-inv-cpu',addInvCpu),
     path('add-inv-desktop',addInvDesktop),
+    path('add-inv-monitor',addInvMonitor),
+    path('add-inv-laptop',addInvLaptop),
+    path('add-inv-fortiget',addFortiget),
+
+    path('add-inv-router',addRouter),
+    path('add-inv-switch',addSwitch),
+    path('add-inv-access',addAccess),
+    path('add-inv-printer',addPrinter),
+    path('add-inv-mouse',addMouse),
+    path('add-inv-keyboard',addKeyboard),
+    path('add-inv-pendrive',addPendrive),
+    path('add-inv-externaldvd',addExternalDvd),
+    path('add-inv-cctv',addCctv),
+    path('add-inv-converter',addConverter),
+    path('add-inv-projector',addProjector),
+    path('add-inv-biometric',addBiometric),
+    path('add-inv-externalhdd',addExternalHdd),
+    path('add-inv-speaker',addSpeaker),
+
+
+
+
+
+
 
     path('inv-report/<int:pk>',invReport),
 
