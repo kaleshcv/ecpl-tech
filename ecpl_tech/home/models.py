@@ -409,7 +409,9 @@ class ServiceCpu(models.Model):
     vendor=models.CharField(max_length=50)
     desc=models.TextField()
     item_serial=models.CharField(max_length=50)
+    item=models.CharField(max_length=50)
     service_status=models.BooleanField(default=True)
+
 
 class ReturnCpu(models.Model):
     date = models.DateField()

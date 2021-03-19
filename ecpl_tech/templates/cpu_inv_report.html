@@ -92,9 +92,7 @@
                 <td><a href="/service-inv-cpu/{{cpu.item_id}},{{cpu.id}}">Service</a></td>
                 <td><a href="/return-inv-cpu/{{cpu.id}}">Return to Vendor</a></td>
                 {% endif %}
-                {% if cpu.service == True %}
-                <td><a href="/return-from-service/{{cpu.id}}">Add to stock</a></td>
-                {% endif %}
+
             </tr>
             {% endfor %}
         </table>

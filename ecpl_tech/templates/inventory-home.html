@@ -1,84 +1,113 @@
 {% extends 'base1.html' %}
 {% block main %}
 {% load static %}
-
 <section>
     <div class="container-lg" style="margin-top:100px;">
         <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="..." class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Add Inventory</h5>
-                          <p><a href="/add-inv-cpu">CPU</a></p>
-                          <p><a href="/add-inv-desktop">Desktop</a></p>
-                          <p><a href="/add-inv-monitor">Monitor</a></p>
-                          <p><a href="/add-inv-laptop">Laptop</a></p>
-                          <p><a href="/add-inv-fortiget">Fortiget Firewall</a></p>
-                          <p><a href="/add-inv-router">Router</a></p>
-                          <p><a href="/add-inv-switch">Switch</a></p>
-                          <p><a href="/add-inv-access">Access Controller</a></p>
-                          <p><a href="/add-inv-printer">Printer</a></p>
-                          <p><a href="/add-inv-mouse">Mouse</a></p>
-                          <p><a href="/add-inv-keyboard">Keyboard</a></p>
-                          <p><a href="/add-inv-pendrive">Pendrive</a></p>
-                          <p><a href="/add-inv-externaldvd">External DVD</a></p>
-                          <p><a href="/add-inv-cctv">CCTV</a></p>
-                          <p><a href="/add-inv-converter">Converter</a></p>
-                          <p><a href="/add-inv-projector">Projector</a></p>
-                          <p><a href="/add-inv-biometric">Biometric</a></p>
-                          <p><a href="/add-inv-externalhdd">External Hard Disc</a></p>
-                          <p><a href="/add-inv-speaker">Speaker</a></p>
-                      </div>
-                    </div>
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+                 <div>
+                     <h5><a href="/return-from-agent">Return Item - Agent</a></h5>
                 </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="..." class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Inventory - Report</h5>
-                          <p><a href="/inv-report/1">CPU</a></p>
-                          <p><a href="/inv-report/2">Desktop</a></p>
-                           <p><a href="/inv-report/3">Monitor</a></p>
-                          <p><a href="/inv-report/4">Laptop</a></p>
-                          <p><a href="/inv-report/5">Fortiget</a></p>
-                          <p><a href="/inv-report/6">Router</a></p>
-                          <p><a href="/inv-report/7">Switch</a></p>
-                          <p><a href="/inv-report/8">Access Control</a></p>
-                          <p><a href="/inv-report/9">Printer</a></p>
-                          <p><a href="/inv-report/10">Mouse</a></p>
-                          <p><a href="/inv-report/11">Keyboard</a></p>
-                          <p><a href="/inv-report/12">Pendrive</a></p>
-                          <p><a href="/inv-report/13">Dvd Writer</a></p>
-                          <p><a href="/inv-report/14">CCTV</a></p>
-                          <p><a href="/inv-report/15">Converters</a></p>
-                          <p><a href="/inv-report/16">Projectors</a></p>
-                          <p><a href="/inv-report/17">Biometric</a></p>
-                          <p><a href="/inv-report/18">External HDD</a></p>
-                          <p><a href="/inv-report/19">Speakers</a></p>
-
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                      <img src="..." class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Agent Return</h5>
-                          <p><a href="/return-from-agent">CPU</a></p>
-                      </div>
-                    </div>
-                </div>
-
+                <hr>
+                <div>
+                     <h5><a href="/return-from-service">Return from Service</a></h5>
                 </div>
             </div>
-
         </div>
     </div>
+</section>
 
+
+<section id="invreport">
+    <div class="container-lg" style="margin-top:100px;">
+        <h5>Inventory Report</h5>
+             <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <p><a href="/inv-report/1" class="items">CPU</a></p>
+                            <p><a href="/inv-report/2" class="items">Desktop</a></p>
+                            <p><a href="/inv-report/3" class="items">Monitor</a></p>
+                            <p><a href="/inv-report/4" class="items">Laptop</a></p>
+                            <p><a href="/inv-report/5" class="items">Fortiget</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p><a href="/inv-report/6" class="items">Router</a></p>
+                            <p><a href="/inv-report/7" class="items">Switch</a></p>
+                            <p><a href="/inv-report/8" class="items">Access Control</a></p>
+                            <p><a href="/inv-report/9" class="items">Printer</a></p>
+                            <p><a href="/inv-report/10" class="items">Mouse</a></p>
+                        </div>
+                        <div class="col-md-3">
+                          <p><a href="/inv-report/11" class="items">Keyboard</a></p>
+                          <p><a href="/inv-report/12" class="items">Pendrive</a></p>
+                          <p><a href="/inv-report/13" class="items">Dvd Writer</a></p>
+                          <p><a href="/inv-report/14" class="items">CCTV</a></p>
+                          <p><a href="/inv-report/15" class="items">Converters</a></p>
+                        </div>
+                        <div class="col-md-3">
+                          <p><a href="/inv-report/16" class="items">Projectors</a></p>
+                          <p><a href="/inv-report/17" class="items">Biometric</a></p>
+                          <p><a href="/inv-report/18" class="items">External HDD</a></p>
+                          <p><a href="/inv-report/19" class="items">Speakers</a></p>
+                        </div>
+                    </div>
+                </div>
+             </div>
+    </div>
+</section>
+
+
+
+<section id="addinv">
+    <div class="container-lg" style="margin-top:100px;">
+        <h5>Add Inventory</h5>
+        <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3">
+                                      <p><a href="/add-inv-cpu" class="items">CPU</a></p>
+                                      <p><a href="/add-inv-desktop" class="items">Desktop</a></p>
+                                      <p><a href="/add-inv-monitor" class="items">Monitor</a></p>
+                                      <p><a href="/add-inv-laptop" class="items">Laptop</a></p>
+                                      <p><a href="/add-inv-fortiget" class="items">Fortiget Firewall</a></p>
+                        </div>
+                        <div class="col-md-3">
+                                      <p><a href="/add-inv-router" class="items">Router</a></p>
+                                      <p><a href="/add-inv-switch" class="items">Switch</a></p>
+                                      <p><a href="/add-inv-access" class="items">Access Controller</a></p>
+                                      <p><a href="/add-inv-printer" class="items">Printer</a></p>
+                                      <p><a href="/add-inv-mouse" class="items">Mouse</a></p>
+                        </div>
+                        <div class="col-md-3">
+                                      <p><a href="/add-inv-keyboard" class="items">Keyboard</a></p>
+                                      <p><a href="/add-inv-pendrive" class="items">Pendrive</a></p>
+                                      <p><a href="/add-inv-externaldvd" class="items">External DVD</a></p>
+                                      <p><a href="/add-inv-cctv" class="items">CCTV</a></p>
+                                      <p><a href="/add-inv-converter" class="items">Converter</a></p>
+                        </div>
+                        <div class="col-md-3">
+                                      <p><a href="/add-inv-projector" class="items">Projector</a></p>
+                                      <p><a href="/add-inv-biometric" class="items">Biometric</a></p>
+                                      <p><a href="/add-inv-externalhdd" class="items">External Hard Disc</a></p>
+                                      <p><a href="/add-inv-speaker"class="items">Speaker</a></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section>
+    <div class="container-lg" style="margin-top:100px;">
+
+    </div>
 </section>
 
 {% endblock %}

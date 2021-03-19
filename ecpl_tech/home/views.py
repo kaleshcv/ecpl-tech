@@ -45,6 +45,10 @@ def loginView(request):
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
 
+def logout_view(request):
+    logout(request)
+    return redirect('/loginview')
+
 
 def homePage(request):
     return render(request,'index.html')
@@ -821,7 +825,7 @@ def serviceCPU(request,iid,pk):
         desc=request.POST['desc']
         item_serial=request.POST['serial_no']
 
-        serv_obj=ServiceCpu(date=date,it_name=it_name,vendor=vendor,desc=desc,item_serial=item_serial)
+        serv_obj=ServiceCpu(date=date,it_name=it_name,vendor=vendor,desc=desc,item_serial=item_serial,item=item)
         serv_obj.save()
 
         def changeStatus(item):
@@ -998,7 +1002,6 @@ def returnFromAgent(request):
 
         if item.count()>0:
 
-
             data={'item':item}
 
             return render(request,'agent-return.html',data)
@@ -1084,11 +1087,12 @@ def returnSubmit(request):
         return render(request, 'agent-return.html')
     else:
         pass
-def retunFromService(request,pk):
+
+
+'''def retunFromService(request,pk):
     if request.method=='POST':
 
         serial = request.POST['serial_no']
-
 
         cpu = Cpu.objects.get(serial_no=serial)
         cpu.service= False
@@ -1101,4 +1105,102 @@ def retunFromService(request,pk):
     else:
         cpu_obj = Cpu.objects.get(id=pk)
         data = {'cpu_obj': cpu_obj}
-        return render(request,'service-return.html',data)
+        return render(request,'service-return.html',data)'''
+
+
+
+
+def returnFromService(request):
+
+    if request.method == 'POST':
+
+        serial=request.POST['serial_no']
+
+
+        item=ServiceCpu.objects.filter(item_serial=serial)
+
+        if item.count()>0:
+
+            data={'item':item}
+
+            return render(request,'service-return.html',data)
+        else:
+            data = {'item': item}
+            messages.info(request, 'Not Found !!!')
+            return render(request, 'service-return.html', data)
+
+
+    item_obj=ServiceCpu.objects.all()
+    data={'items':item_obj}
+
+    return render(request,'service-return.html',data)
+
+def returnServiceSubmit(request):
+    if request.method == 'POST':
+
+        serial=request.POST['serial_no']
+
+        item=request.POST['item']
+
+        print(item)
+
+        item_obj=ServiceCpu.objects.get(item_serial=serial,service_status=True)
+
+        item_obj.service_status=False
+        item_obj.save()
+
+        def changeStatus(item):
+            obj = item.objects.get(serial_no=serial)
+            print(obj.assigned)
+
+            obj.in_stock = True
+            obj.service=False
+            obj.save()
+
+
+        if item=='CPU':
+           changeStatus(Cpu)
+        elif item=='DESKTOP':
+            changeStatus(Desktop)
+        elif item=='MONITOR':
+            changeStatus(Monitor)
+        elif item=='LAPTOP':
+            changeStatus(Laptop)
+        elif item=='FORTIGET':
+            changeStatus(Fortiget)
+        elif item=='ROUTER':
+            changeStatus(Router)
+        elif item=='SWITCH':
+            changeStatus(Switch)
+        elif item=='ACCESS':
+            changeStatus(AccessControler)
+        elif item=='PRINTER':
+            changeStatus(Printer)
+        elif item=='MOUSE':
+            changeStatus(Mouse)
+        elif item=='KEYBOARD':
+            changeStatus(Keyboard)
+        elif item=='PENDRIVE':
+            changeStatus(Pendrive)
+        elif item=='DVD':
+            changeStatus(DvdWriter)
+        elif item=='CCTV':
+
+            changeStatus(Cctv)
+        elif item=='CONVERTERS':
+            changeStatus(Converters)
+        elif item=='PROJECTOR':
+            changeStatus(Projector)
+        elif item=='BIOMETRIC':
+            changeStatus(Biometric)
+        elif item=='EHD':
+            changeStatus(ExternalHardDisc)
+        elif item=='SPEAKER':
+            changeStatus(Speaker)
+
+
+        messages.info(request, 'Returned successfully !')
+
+        return render(request, 'service-return.html')
+    else:
+        pass

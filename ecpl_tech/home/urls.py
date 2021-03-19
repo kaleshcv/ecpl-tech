@@ -7,6 +7,7 @@ urlpatterns = [
     path('home',homePage),
     path('signup',signup),
     path('loginview',loginView),
+    path('logoutview',logout_view),
     path('inventory-home',inventoryHome),
 
 
@@ -45,7 +46,11 @@ urlpatterns = [
     path('return-inv-cpu/<int:pk>',returnCPU),
     path('return-from-agent',returnFromAgent),
     path('return-submit',returnSubmit),
-    path('return-from-service/<int:pk>',retunFromService),
+    path('return-from-service',returnFromService),
+    path('return-service-submit',returnServiceSubmit),
+
+
+   # path('return-from-service/<int:pk>',retunFromService),
 
 
 ]

@@ -1,0 +1,16 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+#invreport .items
+{
+    color: Grey;
+    margin-left: 16px;
+}
+#addinv .items
+{
+    color: #bd2130;
+    margin-left: 16px;
+}

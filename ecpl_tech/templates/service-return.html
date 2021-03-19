@@ -2,52 +2,68 @@
 {% block main %}
 {% load static %}
 
-<div class="container-lg" style="margin-top:100px;margin-bottom:100px;">
-    <h2>Add to Stock( service Return )</h2>
-       <div class="row">
+<div class="container-lg" style="margin-top:100px">
+    <h2>Service return</h2>
+    <div class="row">
+        <div class="col-md-4">
 
-           <div class="col-md-12">
-
-               <form action="/return-from-service/{{cpu_obj.id}}" method="POST" enctype="multipart/form-data">
+                <form action="/return-from-service" method="POST" enctype="multipart/form-data">
                    {% csrf_token %}
-                    <div class="row">
-                   <div class="col-md-6">
-                   <br>
-                    <label for="">Date</label>
-                   <input type="date" name="date" class="form-control">
+                    <label for="">Serial NO</label>
+                    <input type="text" name="serial_no" class="form-control" style="width: 300px" required>
+                    <label for="">Emp_id</label>
+                    <input type="text" name="emp_id" class="form-control" style="width: 300px" required>
+                    <br>
+                    <button type="submit" class="btn btn-primary" value="search">Search</button>
+                </form>
 
-                   <label for="">IT Name</label>
-                   <input type="text" name="it_name" class="form-control" value="{{user.profile.emp_name}}" readonly>
-                   <label for="">Vendor</label>
-                       <input type="text" value="{{cpu_obj.vendor}}" readonly class="form-control" name="vendor">
+        </div>
+        <div class="col-md-1">
 
-                   <label for="">Description</label>
-                   <textarea name="desc" id="" cols="30" rows="5" class="form-control"></textarea>
-                    </div>
-                   <div class="col-md-2">
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h3>Item Details</h3>
 
-                   </div>
-                   <div class="col-md-3">
+                {% for i in item %}
+                {% if i.service_status == True %}
+                <div style="border: 1px solid;padding: 10px;background: #fdfcf6;width: 348px;margin-left: 30px; margin: 20px 20px">
 
-                   <label for="">Serial NO</label>
-                   <input type="text" name="serial_no" value="{{cpu_obj.serial_no}}" class="form-control" readonly>
-                   <label for="">Make</label>
-                   <input type="text" value="{{cpu_obj.make}}" class="form-control" readonly>
-                   <label for="">Model</label>
-                   <input type="text" value="{{cpu_obj.model}}" class="form-control" readonly>
-                   <label for="">ECPL Tag Name</label>
-                   <input type="text" value="{{cpu_obj.ecpl_tag_name}}" class="form-control" readonly>
-                   <label for="">Ram</label>
-                   <input type="text" value="{{cpu_obj.ram}}" class="form-control" readonly>
-                   <label for="">Processor</label>
-                   <input type="text" value="{{cpu_obj.processor}}" class="form-control" readonly>
-                   <input type="hidden" value="cpu" name="item">
-                   <br>
-                   <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-                    </div>
-                        </div>
-               </form>
-           </div>
-       </div>
+                    <p>Date od Service - {{i.date}}</p>
+                    <p>Item - {{i.item}}</p>
+                    <p>Serial No - {{i.item_serial}}</p>
+
+                    <form action="/return-service-submit" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{i.item_serial}}" name="serial_no" class="form-control">
+
+                        <input type="hidden" value="{{i.emp_id}}" name="emp_id" class="form-control">
+                        <input type="text" value="{{i.item}}" name="item" class="form-control">
+
+                        <button type="submit" class="btn btn-primary" value="search">Return</button>
+
+                    </form>
+
+                </div>
+                {% else %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
 </div>
+
+<div class="container-lg" style="margin-top:50px">
+    <div class="row">
+        {% for m in messages %}
+            {{m}}
+        {% endfor %}
+    </div>
+</div>
+
+
 {% endblock %}
+
+
