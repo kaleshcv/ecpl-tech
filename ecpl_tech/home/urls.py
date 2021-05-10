@@ -35,9 +35,6 @@ urlpatterns = [
 
 
 
-
-
-
     path('inv-report/<int:pk>',invReport),
 
 

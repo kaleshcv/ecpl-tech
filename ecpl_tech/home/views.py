@@ -368,7 +368,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 1}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             cpu_obj_all=Cpu.objects.all()
             data={'cpu_obj_all':cpu_obj_all,'id':1}
@@ -384,7 +385,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 2}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Desktop.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':2}
@@ -400,7 +402,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 3}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Monitor.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':3}
@@ -416,7 +419,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 4}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Laptop.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':4}
@@ -432,7 +436,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 5}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Fortiget.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':5}
@@ -448,7 +453,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 6}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Router.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':6}
@@ -464,7 +470,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 7}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Switch.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':7}
@@ -480,7 +487,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 8}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=AccessControler.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':8}
@@ -496,7 +504,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 9}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Printer.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':9}
@@ -512,7 +521,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 10}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Mouse.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':10}
@@ -529,7 +539,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 11}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Keyboard.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':11}
@@ -545,7 +556,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 12}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Pendrive.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':12}
@@ -561,7 +573,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 13}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=DvdWriter.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':13}
@@ -577,7 +590,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 14}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Cctv.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':14}
@@ -593,7 +607,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 15}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Converters.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':15}
@@ -609,7 +624,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 16}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Projector.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':16}
@@ -625,7 +641,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 17}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Biometric.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':17}
@@ -641,7 +658,8 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 18}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=ExternalHardDisc.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':18}
@@ -657,11 +675,13 @@ def invReport(request,pk):
                     return render(request,'cpu_inv_report.html',data)
                 else:
                     messages.info(request,'Not Found !!!')
-                    return render(request, 'cpu_inv_report.html')
+                    data = {'id': 19}
+                    return render(request, 'cpu_inv_report.html',data)
         else:
             desk_obj_all=Speaker.objects.all()
             data={'cpu_obj_all':desk_obj_all,'id':19}
             return render(request,'cpu_inv_report.html',data)
+
 
 
 ################### Assign
@@ -1087,46 +1107,18 @@ def returnSubmit(request):
         pass
 
 
-'''def retunFromService(request,pk):
-    if request.method=='POST':
-
-        serial = request.POST['serial_no']
-
-        cpu = Cpu.objects.get(serial_no=serial)
-        cpu.service= False
-        cpu.in_stock = True
-        cpu.save()
-
-        messages.info(request, 'Added to Stock successfully !')
-        return redirect('/inv-report-cpu')
-
-    else:
-        cpu_obj = Cpu.objects.get(id=pk)
-        data = {'cpu_obj': cpu_obj}
-        return render(request,'service-return.html',data)'''
-
-
-
-
 def returnFromService(request):
 
     if request.method == 'POST':
-
         serial=request.POST['serial_no']
-
-
         item=ServiceCpu.objects.filter(item_serial=serial)
-
         if item.count()>0:
-
             data={'item':item}
-
             return render(request,'service-return.html',data)
         else:
             data = {'item': item}
             messages.info(request, 'Not Found !!!')
             return render(request, 'service-return.html', data)
-
 
     item_obj=ServiceCpu.objects.all()
     data={'items':item_obj}
@@ -1134,25 +1126,19 @@ def returnFromService(request):
     return render(request,'service-return.html',data)
 
 def returnServiceSubmit(request):
+
     if request.method == 'POST':
-
         serial=request.POST['serial_no']
-
         item=request.POST['item']
-
-
         item_obj=ServiceCpu.objects.get(item_serial=serial,service_status=True)
-
         item_obj.service_status=False
         item_obj.save()
 
         def changeStatus(item):
             obj = item.objects.get(serial_no=serial)
-
             obj.in_stock = True
             obj.service=False
             obj.save()
-
 
         if item=='CPU':
            changeStatus(Cpu)
@@ -1181,7 +1167,6 @@ def returnServiceSubmit(request):
         elif item=='DVD':
             changeStatus(DvdWriter)
         elif item=='CCTV':
-
             changeStatus(Cctv)
         elif item=='CONVERTERS':
             changeStatus(Converters)
@@ -1193,7 +1178,6 @@ def returnServiceSubmit(request):
             changeStatus(ExternalHardDisc)
         elif item=='SPEAKER':
             changeStatus(Speaker)
-
 
         messages.info(request, 'Returned successfully !')
 
