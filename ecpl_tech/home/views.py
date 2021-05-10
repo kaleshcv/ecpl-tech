@@ -1025,8 +1025,6 @@ def returnSubmit(request):
         emp_id=request.POST['emp_id']
         item=request.POST['item']
 
-        print(item)
-
         item_obj=Assigned.objects.get(emp_id=emp_id,item_serial=serial)
 
         item_obj.return_status=True
@@ -1034,7 +1032,7 @@ def returnSubmit(request):
 
         def changeStatus(item):
             obj = item.objects.get(serial_no=serial)
-            print(obj.assigned)
+
 
             obj.in_stock = True
             obj.assigned=False
@@ -1142,7 +1140,6 @@ def returnServiceSubmit(request):
 
         item=request.POST['item']
 
-        print(item)
 
         item_obj=ServiceCpu.objects.get(item_serial=serial,service_status=True)
 
@@ -1151,7 +1148,6 @@ def returnServiceSubmit(request):
 
         def changeStatus(item):
             obj = item.objects.get(serial_no=serial)
-            print(obj.assigned)
 
             obj.in_stock = True
             obj.service=False
