@@ -1184,3 +1184,24 @@ def returnServiceSubmit(request):
         return render(request, 'service-return.html')
     else:
         pass
+
+
+def dataCollection(request):
+
+    employees = Employees.objects.filter(data_collected=False).order_by('emp_name')
+
+    data={'employees':employees}
+
+    return render(request,'employees-details.html',data)
+
+def empDetailedView(request):
+
+    if request.method == 'POST':
+        id=request.POST['id']
+        employee = Employees.objects.get(id=id)
+        data={'employee':employee}
+        return render(request,'employee-detailed-view.html',data)
+    else:
+        pass
+
+

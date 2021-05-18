@@ -1,0 +1,43 @@
+{% extends 'base1.html' %}
+{% block main %}
+{% load static %}
+
+<div class="container-lg" style="margin-top:50px">
+    <h2>Employee Info</h2>
+    <br>
+    <div class="row">
+        <div class="col-md-4 emp-info">
+            <p>Name :<span>{{employee.emp_name}}</span></p>
+            <p>Emp ID :<span>{{employee.emp_id}}</span></p>
+            <p>DOJ :<span>{{employee.doj}}</span></p>
+            <p>Status :<span>{{employee.status}}</span></p>
+        </div>
+        <div class="col-md-8 emp-info">
+            <p>Designation :<span>{{employee.emp_desi}}</span></p>
+            <p>Process :<span>{{employee.process}}</span></p>
+            <p>Phone Number :<span><a href="tel:{{employee.personal_no}}">{{employee.personal_no}}</a></span></p>
+            <p>Emergency Contact :<span><a href="tel:{{employee.emergency_no}}">{{employee.emergency_no}}</a></span></p>
+        </div>
+    </div>
+    <div class="address">
+        <p>Address :<span>{{employee.address}}</span></p>
+    </div>
+
+</div>
+
+<hr>
+<div class="container" style="margin-top:50px">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}
+
+                <button type="submit" class="btn btn-info" value="Submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

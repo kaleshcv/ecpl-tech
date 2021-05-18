@@ -9,6 +9,8 @@ urlpatterns = [
     path('loginview',loginView),
     path('logoutview',logout_view),
     path('inventory-home',inventoryHome),
+    path('data-collection',dataCollection),
+    path('employee-detailed-view',empDetailedView),
 
 
     path('add-inv-cpu',addInvCpu),

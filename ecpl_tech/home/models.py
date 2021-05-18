@@ -419,3 +419,73 @@ class ReturnCpu(models.Model):
     vendor=models.CharField(max_length=50)
     desc=models.TextField()
     item_serial=models.CharField(max_length=50)
+
+
+class Employees(models.Model):
+
+    emp_id = models.IntegerField(null=True)
+    emp_name = models.CharField(max_length=50,null=True)
+    doj = models.CharField(max_length=30,null=True)
+    status = models.CharField(max_length=50,null=True)
+    gender = models.CharField(max_length=50,null=True)
+    process = models.TextField(null=True)
+    emp_desi = models.CharField(max_length=50,null=True)
+    personal_no = models.IntegerField(null=True)
+    emergency_no = models.IntegerField(null=True)
+    aadhar_no = models.CharField(max_length=50,null=True)
+    email_id = models.EmailField(null=True)
+    address = models.TextField(null=True)
+
+    no_of_systems = models.IntegerField(null=True)
+    pc_or_lap = models.CharField(max_length=50,null=True)
+    make = models.CharField(max_length=50,null=True)
+    model = models.CharField(max_length=50,null=True)
+    serial = models.CharField(max_length=50,null=True)
+    ram = models.CharField(max_length=50,null=True)
+    hard_disc = models.CharField(max_length=50,null=True)
+    system_remarks = models.TextField(null=True)
+
+    inch_18 = models.IntegerField(null=True)
+    inch_19 = models.IntegerField(null=True)
+    inch_20 = models.IntegerField(null=True)
+    inch_24 = models.IntegerField(null=True)
+    monitor_remarks = models.TextField(null=True)
+
+    head_company = models.CharField(max_length=50,null=True)
+    head_own = models.CharField(max_length=10,null=True)
+    head_remarks = models.TextField(null=True)
+
+    keyboard = models.CharField(max_length=10,null=True)
+    mouse = models.CharField(max_length=10,null=True)
+    webcam = models.CharField(max_length=10,null=True)
+    other_remarks = models.TextField(null=True)
+
+    sophos = models.CharField(max_length=10,null=True)
+    connectwise = models.CharField(max_length=10,null=True)
+    vpn = models.CharField(max_length=10,null=True)
+    vpn_id = models.CharField(max_length=10,null=True)
+
+    call_date=models.DateTimeField(null=True)
+    called_by = models.CharField(max_length=50,null=True)
+    called_by_id = models.IntegerField(null=True)
+    emp_remarks = models.TextField(null=True)
+
+    data_collected = models.BooleanField(default=False)
+    agent_remarks = models.TextField(null=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

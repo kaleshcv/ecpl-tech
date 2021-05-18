@@ -1,0 +1,28 @@
+{% extends 'base1.html' %}
+{% block main %}
+{% load static %}
+
+<div class="container-lg">
+<h2>Employees Home</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}
+                <label for="" class="form-control">Select Employee</label>
+                <select name="id" id="" class="form-control">
+                   {% for e in employees %}
+                    <option value="{{e.id}}" class="form-control">{{e.emp_name}}-{{e.emp_id}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <button type="submit" class="btn btn-info" value="Submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -14,3 +14,20 @@
     color: #bd2130;
     margin-left: 16px;
 }
+.emp-info p{
+    font-size: 12px;
+    padding: 0px 10px;
+}
+.emp-info span{
+    font-size: 20px;
+    padding: 0px 10px;
+}
+
+.emp-info{
+    line-height: 20px;
+}
+.address{
+    background: aliceblue;
+    font-size: 14px;
+    margin-top: 30px;
+}
