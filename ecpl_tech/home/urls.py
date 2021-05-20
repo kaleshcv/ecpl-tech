@@ -11,9 +11,12 @@ urlpatterns = [
     path('loginview',loginView),
     path('logoutview',logout_view),
     path('inventory-home',inventoryHome),
-    path('data-collection',dataCollection),
+
+    path('select-shift',chooseShift),
+    path('data-collection/<str:shift>',dataCollection),
     path('employee-detailed-view',empDetailedView),
     path('employee-detailed-submit',submitDetails),
+    path('employee-not-available',empNotAvailable),
 
     path('addtoUserModel',addtoUserModel),
 

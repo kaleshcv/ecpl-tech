@@ -1,7 +1,46 @@
 {% extends 'base1.html' %}
 {% block main %}
 {% load static %}
+<div class="container" style="margin-top:50px">
+    <div class="row">
+        <div class="col-md-2">
+            <div style="background: #9e9e9e;box-shadow: 2px 2px 10px lightsteelblue;padding: 10px 10px;border:None">
+                <p style="color:black">Shift</p>
+                <h4>{{shift}}</h4>
+            </div>
 
+        </div>
+        <div class="col-md-2">
+            <div style="background: #9e9e9e;box-shadow: 2px 2px 10px lightsteelblue;padding: 10px 10px;border:None">
+                <p style="color:black">Total</p>
+                <h4>{{shift_count}}</h4>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div style="background: #9e9e9e;box-shadow: 2px 2px 10px lightsteelblue;padding: 10px 10px;border:None">
+                <p style="color:black">Completed</p>
+                <h4>{{shift_count_done}}</h4>
+            </div>
+        </div>
+        <div class="col-md-6">
+             <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-4" style="background: #ffcdd2;padding: 10px 10px;box-shadow: 1px 1px 10px grey;">
+                    <p>Total Pending</p>
+                    <h2>{{employees_count}}</h2>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4" style="background: #e8f5e9;padding: 10px 10px;box-shadow: 1px 1px 10px grey;">
+                    <p>Total Collected</p>
+                    <h2>{{em_done_count}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <div class="container" style="margin-top:50px">
     <div class="row">
@@ -9,7 +48,7 @@
             <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
                 {% load crispy_forms_tags %}
                 {% csrf_token %}
-                <label for="" class="form-control">Select Employee</label>
+                <label for="" class="form-control">Active Employees</label>
                 <select name="id" id="" class="form-control">
                    {% for e in employees %}
                     <option value="{{e.id}}" class="form-control">{{e.emp_name}}-{{e.emp_id}}</option>
@@ -18,33 +57,58 @@
                 <br>
                 <button type="submit" class="btn btn-info" value="Submit">Submit</button>
             </form>
-        </div>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-3">
 
-                </div>
-                <div class="col-md-4" style="background: #ffcdd2;padding: 10px 10px;box-shadow: 1px 1px 10px grey;">
-                    <p>Information Pending</p>
-                    <h2>{{employees_count}}</h2>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-4" style="background: #e8f5e9;padding: 10px 10px;box-shadow: 1px 1px 10px grey;">
-                    <p>Information Collected</p>
-                    <h2>{{em_done_count}}</h2>
-                </div>
+            <div style="margin-top: 100px;background: #bdb76b1a;padding: 30px;">
+                <br>
+                <h4>Pending List</h4>
+                <br>
+                <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    <label for="" class="form-control">Phone Number Issue</label>
+                    <select name="id" id="" class="form-control">
+                       {% for e in emp_phone %}
+                        <option value="{{e.id}}" class="form-control">{{e.emp_name}}--({{e.other_error_remarks}})</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-secondary" value="Submit">Submit</button>
+                </form>
+                <br><br>
+                <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    <label for="" class="form-control">Shift Issue</label>
+                    <select name="id" id="" class="form-control">
+                       {% for e in emp_shift %}
+                        <option value="{{e.id}}" class="form-control">{{e.emp_name}}--({{e.other_error_remarks}})</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-secondary" value="Submit">Submit</button>
+                </form>
+                <br><br>
+                <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    <label for="" class="form-control">Other Issues</label>
+                    <select name="id" id="" class="form-control">
+                       {% for e in emp_other %}
+                        <option value="{{e.id}}" class="form-control">{{e.emp_name}}--({{e.other_error_remarks}})</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-secondary" value="Submit">Submit</button>
+                </form>
+
             </div>
 
         </div>
-    </div>
-</div>
+        <div class="col-md-2"></div>
 
-<div class="container-lg" style="margin-top:50px">
-    <div class="row">
-        <div class="col-md-8">
-
-        </div>
         <div class="col-md-4">
+            <h6 class="text-center">Agent-wise Stats</h6>
+            <br>
             <table class="table" style="background:#f5f5f5;">
                 {% for e in emp_wise %}
                 <tr>
@@ -53,9 +117,10 @@
                 </tr>
                 {% endfor %}
             </table>
-        </div>
 
+        </div>
     </div>
 </div>
+
 
 {% endblock %}

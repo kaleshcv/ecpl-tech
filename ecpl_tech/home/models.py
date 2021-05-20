@@ -425,6 +425,7 @@ class Employees(models.Model):
 
     emp_id = models.IntegerField(null=True)
     emp_name = models.CharField(max_length=50,null=True)
+    shift = models.CharField(max_length=15,null=True)
     doj = models.CharField(max_length=30,null=True)
     status = models.CharField(max_length=50,null=True)
     gender = models.CharField(max_length=50,null=True)
@@ -473,7 +474,10 @@ class Employees(models.Model):
     data_collected = models.BooleanField(default=False)
     agent_remarks = models.TextField(null=True)
 
-
+    number_error = models.BooleanField(default=False)
+    shift_error = models.BooleanField(default=False)
+    other_error = models.BooleanField(default=False)
+    other_error_remarks = models.TextField(null=True)
 
 
 

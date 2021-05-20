@@ -1,0 +1,44 @@
+{% extends 'base1.html' %}
+{% block main %}
+{% load static %}
+
+<div>
+    {% for m in messages %}
+        <p style="color: green;font-size: 20px;margin-left: 40%;margin-top: 50px">{{m}}</p>
+    {% endfor %}
+</div>
+
+<div class="container" style="margin-top:100px">
+    <div class="row">
+        <div class="col-md-3">
+            <h6 style="text-align: end;margin-top: 15%;font-style: italic;">Select Shift</h6>
+        </div>
+        <div class="col-md-2">
+            <form action="/data-collection/US" method="POST" enctype="multipart/form-data">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-info" value="Submit" style="width: 155px;height: 100px;background: chocolate;border: none">US</button>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <form action="/data-collection/UK" method="POST" enctype="multipart/form-data">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-info" value="Submit" style="width: 155px;height: 100px;background: #455a64;border: none">UK</button>
+            </form>
+        </div>
+        <div class="col-md-2">
+            <form action="/data-collection/Domestic" method="POST" enctype="multipart/form-data">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-info" value="Submit" style="width: 155px;height: 100px;background: #00695c;border: none">Domestic</button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}
