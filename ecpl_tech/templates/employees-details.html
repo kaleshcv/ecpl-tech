@@ -2,10 +2,8 @@
 {% block main %}
 {% load static %}
 
-<div class="container-lg">
-<h2>Employees Home</h2>
-</div>
-<div class="container">
+
+<div class="container" style="margin-top:50px">
     <div class="row">
         <div class="col-md-6">
             <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
@@ -21,8 +19,43 @@
                 <button type="submit" class="btn btn-info" value="Submit">Submit</button>
             </form>
         </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-4" style="background: #ffcdd2;padding: 10px 10px;box-shadow: 1px 1px 10px grey;">
+                    <p>Information Pending</p>
+                    <h2>{{employees_count}}</h2>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4" style="background: #e8f5e9;padding: 10px 10px;box-shadow: 1px 1px 10px grey;">
+                    <p>Information Collected</p>
+                    <h2>{{em_done_count}}</h2>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 
+<div class="container-lg" style="margin-top:50px">
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+            <table class="table" style="background:#f5f5f5;">
+                {% for e in emp_wise %}
+                <tr>
+                    <td>{{e.called_by}}</td>
+                    <td>{{e.dcount}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+</div>
 
 {% endblock %}

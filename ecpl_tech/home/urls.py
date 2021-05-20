@@ -4,6 +4,8 @@ from .views import *
 
 
 urlpatterns = [
+    path('',loginView),
+    path('accounts/login/',loginView),
     path('home',homePage),
     path('signup',signup),
     path('loginview',loginView),
@@ -11,6 +13,11 @@ urlpatterns = [
     path('inventory-home',inventoryHome),
     path('data-collection',dataCollection),
     path('employee-detailed-view',empDetailedView),
+    path('employee-detailed-submit',submitDetails),
+
+    path('addtoUserModel',addtoUserModel),
+
+   # path('statusChange',statusChange),
 
 
     path('add-inv-cpu',addInvCpu),

@@ -1,9 +1,11 @@
+from django.db.models import Count
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib import messages
 from . import forms
 from .models import *
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -39,8 +41,8 @@ def loginView(request):
             return render(request,'index.html')
         else:
             form = AuthenticationForm()
-            messages.info(request,'Invalid Credentials !')
-            return render(request,'login.html',{'form':form})
+            m='Invalid Credentials !'
+            return render(request,'login.html',{'form':form,'m':m})
     else:
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
@@ -1186,14 +1188,24 @@ def returnServiceSubmit(request):
         pass
 
 
+@login_required
 def dataCollection(request):
 
-    employees = Employees.objects.filter(data_collected=False).order_by('emp_name')
+    emp_wise = Employees.objects.filter(data_collected=True).values('called_by').annotate(dcount=Count('called_by'))
 
-    data={'employees':employees}
+    employees = Employees.objects.filter(data_collected=False).order_by('emp_name')
+    employees_count = Employees.objects.filter(data_collected=False).count()
+
+    em_done = Employees.objects.filter(data_collected=True)
+    em_done_count = Employees.objects.filter(data_collected=True).count()
+
+    data={'employees':employees,'em_done':em_done,'employees_count':employees_count,'em_done_count':em_done_count,
+          'emp_wise':emp_wise
+          }
 
     return render(request,'employees-details.html',data)
 
+@login_required
 def empDetailedView(request):
 
     if request.method == 'POST':
@@ -1203,5 +1215,82 @@ def empDetailedView(request):
         return render(request,'employee-detailed-view.html',data)
     else:
         pass
+
+@login_required
+def submitDetails(request):
+    from datetime import date
+    today = date.today()
+
+    if request.method == 'POST':
+        id=request.POST['id']
+
+        e = Employees.objects.get(id=id)
+        e.no_of_systems = request.POST['no_of_systems']
+        e.pc_or_lap = request.POST['system_type']
+        e.make = request.POST['make']
+        e.model = request.POST['model']
+        e.serial = request.POST['serial_no']
+        e.ram = request.POST['ram']
+        e.hard_disc = request.POST['hard_disc']
+        e.system_remarks = request.POST['system_remarks']
+
+        e.inch_18 = request.POST['18inch']
+        e.inch_19 = request.POST['19inch']
+        e.inch_20 = request.POST['20inch']
+        e.inch_24 = request.POST['24inch']
+        e.monitor_remarks = request.POST['monitor_remarks']
+
+        e.head_company = request.POST['headset_company']
+        e.head_own = request.POST['own']
+        e.head_remarks = request.POST['headset_remarks']
+
+        e.keyboard = request.POST['keyboard']
+        e.mouse = request.POST['mouse']
+        e.webcam = request.POST['webcam']
+        e.other_remarks = request.POST['other_remarks']
+
+        e.sophos = request.POST['sophos']
+        e.connectwise = request.POST['connectwise_id']
+        e.vpn = request.POST['vpn']
+        e.vpn_id = request.POST['vpn_id']
+
+        e.call_date = today
+        e.called_by = request.POST['user_name']
+        e.called_by_id = request.POST['user_id']
+        e.emp_remarks = request.POST['emp_remarks']
+        e.data_collected = True
+        e.save()
+
+        return redirect('/data-collection')
+    else:
+        pass
+
+
+'''def statusChange(request):
+
+    id_list = [4812,5561,5780,6403,6531,6699]
+
+    for i in id_list:
+
+        e = Employees.objects.get(id=i)
+        e.data_collected = False
+        e.save()
+'''
+
+
+def addtoUserModel(request):
+
+
+
+    empobj=ProfileAdd.objects.all()
+
+    for i in empobj:
+        user = User.objects.create_user(id=i.emp_id,username=i.emp_id,password=i.password)
+        profile = Profile(id=i.emp_id,emp_name=i.emp_name,emp_id=i.emp_id,email=i.email,user_id=i.emp_id,phone=999999999)
+        profile.save()
+
+
+
+
 
 

@@ -430,8 +430,8 @@ class Employees(models.Model):
     gender = models.CharField(max_length=50,null=True)
     process = models.TextField(null=True)
     emp_desi = models.CharField(max_length=50,null=True)
-    personal_no = models.IntegerField(null=True)
-    emergency_no = models.IntegerField(null=True)
+    personal_no = models.CharField(max_length=50,null=True)
+    emergency_no = models.CharField(max_length=50,null=True)
     aadhar_no = models.CharField(max_length=50,null=True)
     email_id = models.EmailField(null=True)
     address = models.TextField(null=True)
@@ -474,6 +474,20 @@ class Employees(models.Model):
     agent_remarks = models.TextField(null=True)
 
 
+
+
+
+class ProfileAdd(models.Model):
+
+
+    emp_name = models.CharField(max_length=30)
+    emp_id=models.IntegerField()
+    email=models.EmailField(default='emp@ecpl.com',null=True)
+    password=models.CharField(max_length=50)
+
+
+    def __str__(self):
+        return self.emp_name
 
 
 
