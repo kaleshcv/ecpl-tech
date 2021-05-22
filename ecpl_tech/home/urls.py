@@ -17,6 +17,7 @@ urlpatterns = [
     path('employee-detailed-view',empDetailedView),
     path('employee-detailed-submit',submitDetails),
     path('employee-not-available',empNotAvailable),
+    path('view-emp-data',viewEmployeeData),
 
     path('addtoUserModel',addtoUserModel),
 

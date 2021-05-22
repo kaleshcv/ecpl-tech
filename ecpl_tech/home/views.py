@@ -1318,7 +1318,13 @@ def empNotAvailable(request):
     else:
         pass
 
+@login_required
+def viewEmployeeData(request):
 
+    employees = Employees.objects.filter(data_collected=True).order_by('call_date')
+
+    data = {'employees':employees}
+    return render(request,'view-employee-data.html',data)
 
 '''def statusChange(request):
 
@@ -1333,8 +1339,6 @@ def empNotAvailable(request):
 
 
 def addtoUserModel(request):
-
-
 
     empobj=ProfileAdd.objects.all()
 

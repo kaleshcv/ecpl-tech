@@ -1,0 +1,72 @@
+{% extends 'base1.html' %}
+{% block main %}
+{% load static %}
+<div class="container-fluid" style="margin-top:50px">
+
+    <div>
+        <table class="table table-hover table-bordered">
+
+            <tr>
+                <th>Emp ID</th>
+                <th>Emp Name</th>
+                <th>Shift</th>
+                <th>No. of systems</th>
+                <th>pc/laptop</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Serial</th>
+                <th>Ram</th>
+                <th>Hard Disc</th>
+                <th>18 Inch</th>
+                <th>19 Inch</th>
+                <th>20 Inch</th>
+                <th>24 Inch</th>
+                <th>Headset Company</th>
+                <th>Own Headset</th>
+                <th>Keyboard</th>
+                <th>Mouse</th>
+                <th>Webcam</th>
+                <th>Sophos</th>
+                <th>Connectwise</th>
+                <th>VPN</th>
+                <th>VPN ID</th>
+                <th>Call Date</th>
+                <th>Called_BY</th>
+
+            </tr>
+            {% for e in employees %}
+            <tr>
+                <td>{{e.emp_id}}</td>
+                <td>{{e.emp_name}}</td>
+                <td>{{e.shift}}</td>
+                <td>{{e.no_of_systems}}</td>
+                <td>{{e.pc_or_lap}}</td>
+                <td>{{e.make}}</td>
+                <td>{{e.model}}</td>
+                <td>{{e.serial}}</td>
+                <td>{{e.ram}}</td>
+                <td>{{e.hard_disc}}</td>
+                <td>{{e.inch_18}}</td>
+                <td>{{e.inch_19}}</td>
+                <td>{{e.inch_20}}</td>
+                <td>{{e.inch_24}}</td>
+                <td>{{e.head_company}}</td>
+                <td>{{e.head_own}}</td>
+                <td>{{e.keyboard}}</td>
+                <td>{{e.mouse}}</td>
+                <td>{{e.webcam}}</td>
+                <td>{{e.sophos}}</td>
+                <td>{{e.connectwise}}</td>
+                <td>{{e.vpn}}</td>
+                <td>{{e.vpn_id}}</td>
+                <td>{{e.call_date}}</td>
+                <td>{{e.called_by}}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}
