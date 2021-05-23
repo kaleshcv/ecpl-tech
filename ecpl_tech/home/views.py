@@ -1270,6 +1270,7 @@ def submitDetails(request):
         e.called_by = request.POST['user_name']
         e.called_by_id = request.POST['user_id']
         e.emp_remarks = request.POST['emp_remarks']
+        e.email_id = request.POST['email']
         e.data_collected = True
 
         e.number_error = False
