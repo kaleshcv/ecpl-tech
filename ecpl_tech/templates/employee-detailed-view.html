@@ -2,6 +2,30 @@
 {% block main %}
 {% load static %}
 
+
+<script type="text/javascript">
+   $(document).ready(function(){
+     $('#personal_laptop').click(function(){
+     if ($('#personal_laptop').is(":checked")) {
+      $('#no_of_systems').val(0);
+      $('#make').val('NA');
+      $('#model').val('NA');
+      $('#serial_no').val('NA');
+      $('#personal').val('Yes');
+
+     } else { //Clear on uncheck
+      $('#no_of_systems').val("");
+      $('#make').val("");
+      $('#model').val("");
+      $('#serial_no').val("");
+
+
+     };
+    });
+
+   });
+</script>
+
 <div class="container-lg" style="margin-top:50px">
     <div class="row">
         <div class="col-md-3 emp-info">
@@ -28,11 +52,15 @@
                     <select name="reason" id="" class="form-control">
                         <option value="phone">Phone Not Available</option>
                         <option value="shift">Wrong shift</option>
+                        <option value="resigned">Resigned and system Returned</option>
+                        <option value="resigned-not">Resigned but system not Returned</option>
                         <option value="other">Other</option>
                     </select>
                     <label for="">Remarks</label>
                     <textarea name="remarks" id="" cols="30" rows="2" required class="form-control"></textarea>
                     <br>
+                    <input type="hidden" name="user_name" value="{{user.profile.emp_name}}">
+                    <input type="hidden" name="user_id" value="{{user.profile.emp_id}}">
                     <input type="hidden" name="emp_id" value="{{employee.emp_id}}">
                     <button type="submit" class="btn btn-info" value="Submit">Update</button>
                 </form>
@@ -55,22 +83,25 @@
                 <div class="row">
                     <div class="col-md-3">
                         <h4>System Details</h4>
+                        <input type="checkbox" name="personal_laptop" id="personal_laptop">
+                        <label for="personal_laptop" style="color:Darkgreen">Personal Laptop/PC</label>
+                        <br>
                         <label for="">No of Systems</label>
-                        <input type="number" name="no_of_systems" class="form-control" required>
+                        <input type="number" name="no_of_systems" id="no_of_systems" class="form-control" required>
                         <label for="">Systems Type</label>
-                        <select name="system_type" id="" class="form-control" required>
+                        <select name="system_type" id="system_type" class="form-control" required>
                             <option value="laptop" class="form-control">Laptop</option>
                             <option value="pc" class="form-control">PC</option>
                         </select>
                         <label for="">System Make</label>
-                        <input type="text" name="make" class="form-control" required>
+                        <input type="text" name="make" id="make" class="form-control" required>
                         <label for="">System Model</label>
-                        <input type="text" name="model" class="form-control" required>
+                        <input type="text" name="model" id="model" class="form-control" required>
                         <label for="">Serial Number</label>
-                        <input type="text" name="serial_no" class="form-control" required>
+                        <input type="text" name="serial_no" id="serial_no" class="form-control" required>
 
                         <label for="">Ram</label>
-                        <select name="ram" id="" class="form-control" required>
+                        <select name="ram" id="ram" class="form-control" required>
                             <option value="2gb">2GB</option>
                             <option value="4gb">4GB</option>
                             <option value="6gb">6GB</option>
@@ -80,7 +111,7 @@
                         </select>
 
                         <label for="">Hard Disc</label>
-                        <select name="hard_disc" id="" class="form-control" required>
+                        <select name="hard_disc" id="hard_disc" class="form-control" required>
                             <option value="ssd">SSD</option>
                             <option value="hdd">HDD</option>
                         </select>
@@ -197,6 +228,7 @@
                         <label for="">Email ID</label>
                         <input type="email" name="email" class="form-control">
                         <br>
+                        <input type="hidden" name="personal" id="personal" value="No">
                         <button type="submit" class="btn btn-info form-control" value="Submit">Submit</button>
                     </div>
                 </div>

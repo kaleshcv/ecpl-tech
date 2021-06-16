@@ -479,6 +479,11 @@ class Employees(models.Model):
     other_error = models.BooleanField(default=False)
     other_error_remarks = models.TextField(null=True)
 
+    employee_resigned = models.BooleanField(default=False)
+    personal_laptop = models.BooleanField(default=False)
+    system_returned = models.BooleanField(default=False)
+
+
 
 
 class ProfileAdd(models.Model):

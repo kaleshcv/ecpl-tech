@@ -1202,6 +1202,10 @@ def dataCollection(request,shift):
     emp_shift = Employees.objects.filter(shift_error=True, shift=shift).order_by('emp_name')
     emp_other = Employees.objects.filter(other_error=True, shift=shift).order_by('emp_name')
 
+    resigned_returned = Employees.objects.filter(employee_resigned=True,system_returned=True,shift=shift)
+    resigned_not_returned = Employees.objects.filter(employee_resigned=True, system_returned=False,shift=shift)
+
+
     employees_shift_count = Employees.objects.filter(data_collected=False,shift=shift).count()
     done_shift_count = Employees.objects.filter(data_collected=True, shift=shift).count()
     employees_count = Employees.objects.filter(data_collected=False).count()
@@ -1212,7 +1216,8 @@ def dataCollection(request,shift):
 
     data={'employees':employees,'em_done':em_done,'employees_count':employees_count,'em_done_count':em_done_count,
           'emp_wise':emp_wise,'shift_count':employees_shift_count,'shift':shift,'shift_count_done':done_shift_count,
-          'emp_phone':emp_phone,'emp_shift':emp_shift,'emp_other':emp_other
+          'emp_phone':emp_phone,'emp_shift':emp_shift,'emp_other':emp_other,
+          'resigned_returned':resigned_returned,'resigned_not_returned':resigned_not_returned
           }
 
     return render(request,'employees-details.html',data)
@@ -1271,11 +1276,18 @@ def submitDetails(request):
         e.called_by_id = request.POST['user_id']
         e.emp_remarks = request.POST['emp_remarks']
         e.email_id = request.POST['email']
-        e.data_collected = True
+        personal = request.POST['personal']
 
+        if personal == 'Yes':
+            e.personal_laptop = True
+        else:
+            e.personal_laptop = False
+
+        e.data_collected = True
         e.number_error = False
         e.shift_error = False
         e.other_error = False
+
         e.save()
         messages.info(request,'Information Updated !!!')
         return redirect('/select-shift')
@@ -1298,6 +1310,10 @@ def empNotAvailable(request):
             e.shift_error = False
             e.other_error_remarks = remarks
             e.data_collected = False
+
+            e.called_by = request.POST['user_name']
+            e.called_by_id = request.POST['user_id']
+
             e.save()
 
         elif reason == 'shift':
@@ -1306,13 +1322,48 @@ def empNotAvailable(request):
             e.other_error = False
             e.other_error_remarks = remarks
             e.data_collected = False
+
+            e.called_by = request.POST['user_name']
+            e.called_by_id = request.POST['user_id']
+
             e.save()
+        elif reason == 'resigned':
+            e.data_collected = True
+            e.employee_resigned = True
+            e.system_returned = True
+            e.shift_error = False
+            e.number_error = False
+            e.other_error = False
+            e.other_error_remarks = remarks
+
+            e.called_by = request.POST['user_name']
+            e.called_by_id = request.POST['user_id']
+
+            e.save()
+        elif reason == 'resigned-not':
+            e.data_collected = True
+            e.employee_resigned = True
+            e.system_returned = False
+            e.shift_error = False
+            e.number_error = False
+            e.other_error = False
+            e.other_error_remarks = remarks
+
+            e.called_by = request.POST['user_name']
+            e.called_by_id = request.POST['user_id']
+
+            e.save()
+
         else:
             e.other_error = True
             e.shift_error = False
             e.number_error = False
             e.other_error_remarks = remarks
             e.data_collected = False
+
+            e.called_by = request.POST['user_name']
+            e.called_by_id = request.POST['user_id']
+
             e.save()
         messages.info(request, 'Agent has been moved to Not Available List !!!')
         return redirect('/select-shift')
@@ -1347,9 +1398,5 @@ def addtoUserModel(request):
         user = User.objects.create_user(id=i.emp_id,username=i.emp_id,password=i.password)
         profile = Profile(id=i.emp_id,emp_name=i.emp_name,emp_id=i.emp_id,email=i.email,user_id=i.emp_id,phone=999999999)
         profile.save()
-
-
-
-
 
 

@@ -100,6 +100,36 @@
                     <br>
                     <button type="submit" class="btn btn-secondary" value="Submit">Submit</button>
                 </form>
+                <br><br>
+                <div style="background: palegreen;padding: 50px;">
+                    <h4>Resigned Employees List</h4>
+                    <br>
+                    <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    <label for="" class="form-control">Resigned and Returned</label>
+                    <select name="id" id="" class="form-control">
+                       {% for e in resigned_returned %}
+                        <option value="{{e.id}}" class="form-control">{{e.emp_name}}--({{e.other_error_remarks}})</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-info" value="Submit">Submit</button>
+                    </form>
+                    <br><br>
+                    <form action="/employee-detailed-view" method="POST" enctype="multipart/form-data">
+                        {% load crispy_forms_tags %}
+                        {% csrf_token %}
+                        <label for="" class="form-control">Resigned but Not Returned</label>
+                        <select name="id" id="" class="form-control">
+                           {% for e in resigned_not_returned %}
+                            <option value="{{e.id}}" class="form-control">{{e.emp_name}}--({{e.other_error_remarks}})</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <button type="submit" class="btn btn-info" value="Submit">Submit</button>
+                    </form>
+                </div>
 
             </div>
 
