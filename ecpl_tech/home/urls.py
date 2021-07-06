@@ -20,6 +20,7 @@ urlpatterns = [
     path('view-emp-data',viewEmployeeData),
 
     path('addtoUserModel',addtoUserModel),
+    path('view-emp-details',viewEmployeeDetailsAll),
 
    # path('statusChange',statusChange),
 

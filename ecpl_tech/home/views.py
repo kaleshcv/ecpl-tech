@@ -1189,7 +1189,9 @@ def returnServiceSubmit(request):
 
 @login_required
 def chooseShift(request):
-    return render(request,'choose-shift.html')
+    employee_completed = Employees.objects.filter(data_collected=True).order_by('emp_id')
+    data = {'employees':employee_completed}
+    return render(request,'choose-shift.html',data)
 
 
 @login_required
@@ -1400,3 +1402,10 @@ def addtoUserModel(request):
         profile.save()
 
 
+
+def viewEmployeeDetailsAll(request):
+    if request.method == 'POST':
+        emp_id = request.POST['emp_id']
+        employee = Employees.objects.get(emp_id = emp_id)
+        data = {'employee':employee}
+        return render(request,'employee-detail.html',data)

@@ -1,0 +1,241 @@
+{% extends 'base1.html' %}
+{% block main %}
+{% load static %}
+
+
+<script type="text/javascript">
+   $(document).ready(function(){
+     $('#personal_laptop').click(function(){
+     if ($('#personal_laptop').is(":checked")) {
+      $('#no_of_systems').val(0);
+      $('#make').val('NA');
+      $('#model').val('NA');
+      $('#serial_no').val('NA');
+      $('#personal').val('Yes');
+
+     } else { //Clear on uncheck
+      $('#no_of_systems').val("");
+      $('#make').val("");
+      $('#model').val("");
+      $('#serial_no').val("");
+
+
+     };
+    });
+
+   });
+</script>
+
+<div class="container-lg" style="margin-top:50px">
+    <div class="row">
+        <div class="col-md-3 emp-info">
+            <br><br>
+            <p>Name :<span>{{employee.emp_name}}</span></p>
+            <p>Emp ID :<span>{{employee.emp_id}}</span></p>
+            <p>DOJ :<span>{{employee.doj}}</span></p>
+            <p>Status :<span>{{employee.status}}</span></p>
+        </div>
+        <div class="col-md-5 emp-info">
+            <br><br>
+            <p>Designation :<span>{{employee.emp_desi}}</span></p>
+            <p>Process :<span>{{employee.process}}</span></p>
+            <p>Phone Number :<span><a href="tel:{{employee.personal_no}}">{{employee.personal_no}}</a></span></p>
+            <p>Emergency Contact :<span><a href="tel:{{employee.emergency_no}}">{{employee.emergency_no}}</a></span></p>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="address">
+        <p>Address :<span>{{employee.address}}</span></p>
+    </div>
+
+</div>
+
+<div class="container" style="margin-top:50px;margin-bottom:100px">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/employee-detailed-submit" method="POST" enctype="multipart/form-data">
+                {% load crispy_forms_tags %}
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4>System Details</h4>
+                        <input type="checkbox" name="personal_laptop" id="personal_laptop">
+                        <label for="personal_laptop" style="color:Darkgreen">Personal Laptop/PC</label>
+                        <p style="color:red">Last Update - {{employee.personal_laptop}}</p>
+                        <br>
+                        <label for="">No of Systems</label>
+                        <input type="number" name="no_of_systems" id="no_of_systems" class="form-control" required value="{{employee.no_of_systems}}" style="color:red">
+                        <br>
+                        <label for="">Systems Type</label>
+                        <p style="color:red">Last Update : {{employee.pc_or_lap}}</p>
+                        <p>Change Here</p>
+                        <select name="system_type" id="system_type" class="form-control" required>                             
+                            <option value="laptop" class="form-control">Laptop</option>
+                            <option value="pc" class="form-control">PC</option>
+                        </select>
+                        <label for="">System Make</label>
+                        <input type="text" name="make" id="make" class="form-control" required value="{{employee.make}}" style="color:red">
+                        <label for="">System Model</label>
+                        <input type="text" name="model" id="model" class="form-control" required value="{{employee.model}}" style="color:red">
+                        <label for="">Serial Number</label>
+                        <input type="text" name="serial_no" id="serial_no" class="form-control" required value="{{employee.serial}}" style="color:red">
+                        <br>
+                        <label for="">Ram</label>
+                        <p style="color:red">Last Update : {{employee.ram}}</p>
+                        <p>Change Here</p>    
+                        <select name="ram" id="ram" class="form-control" required>
+                            <option value="2gb">2GB</option>
+                            <option value="4gb">4GB</option>
+                            <option value="6gb">6GB</option>
+                            <option value="8gb">8GB</option>
+                            <option value="10gb">10GB</option>
+                            <option value="12gb">12GB</option>
+                        </select>
+                        <br>    
+                        <label for="">Hard Disc</label>
+                        <p style="color:red">Last Update : {{employee.hard_disc}}</p>
+                        <p>Change Here</p> 
+                        <select name="hard_disc" id="hard_disc" class="form-control" required>
+                            <option value="ssd">SSD</option>
+                            <option value="hdd">HDD</option>
+                        </select>
+                        <label for="">Remarks</label>
+                        <textarea name="system_remarks" id="" cols="30" rows="2" class="form-control" style="color:red">{{employee.system_remarks}}</textarea>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <h4>Monitor Details</h4>
+                        <br>
+                        <p>Last Update</p>
+                        <p style="color:red">18 Inch - {{employee.inch_18}} ,19 Inch - {{employee.inch_19}} ,20 Inch - {{employee.inch_20}} ,24 Inch - {{employee.inch_24}} ,</p>
+                        <label for="">18 Inch</label>
+                        <select name="18inch" id="" required>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+
+                        <label for="">19 Inch</label>
+                        <select name="19inch" id="" required>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+
+                        <label for="">20 Inch</label>
+                        <select name="20inch" id="" required>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+
+                        <label for="">24 Inch</label>
+                        <select name="24inch" id="" required>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                        <br>
+                        <label for="">Remarks</label>
+                        <textarea name="monitor_remarks" id="" cols="30" rows="2" class="form-control">{{employee.monitor_remarks}}</textarea>
+                        <br>
+                        <h4>Headsets</h4>
+                        <br>
+                        <p style="color:red">Last Update - Company - {{employee.head_company}}</p>
+                     
+                        <p>Change Here</p>
+                        <label for="">Company</label>
+                        <select name="headset_company" id="" required>
+                            <option value="Vonia">Vonia</option>
+                            <option value="Teleconnector">Teleconnector</option>
+                            <option value="Green Network">Green Network</option>
+                            <option value="other">Other</option>
+                            <option value="NA">NA</option>
+                        </select>
+                        <label for="">Own</label>
+                        <select name="own" id="" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <br>
+                        <label for="">Remarks</label>
+                        <textarea name="headset_remarks" id="" cols="30" rows="2" class="form-control">{{employee.head_remarks}}</textarea>
+                        <br>
+                        <h4>Other Assets</h4>
+
+                        <br>
+                        <p>Last Update</p>
+                        <p style="color:red">Keyboard - {{employee.keyboard}} ,mouse - {{employee.mouse}} ,Webcam - {{employee.webcam}}</p>
+                        <p>Change Here</p>
+                        <label for="">Key Board</label>
+                        <select name="keyboard" id="" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <label for="">Mouse</label>
+                        <select name="mouse" id="" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+
+                        <label for="">WebCam</label>
+                        <select name="webcam" id="" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <br>
+                        <label for="">Remarks</label>
+                        <textarea name="other_remarks" id="" cols="30" rows="2" class="form-control">{{employee.other_remarks}}</textarea>
+
+
+
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Softwares</h4>
+                        <br>
+                        <label for="">Sophos</label>
+                        <p style="color:red">Last Update - {{employee.sophos}}</p>
+                        <select name="sophos" id="" class="form-control" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <br>
+                        <label for="">Connectwise ID</label>
+                        
+                        <input type="text" name="connectwise_id" class="form-control" required value="{{employee.connectwise}}" style="color:red">
+
+                        <label for="">VPN</label>
+                        <p style="color:red">Last Update - {{employee.vpn}}</p>
+                        <select name="vpn" id="" class="form-control" required>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <br>
+                        <label for="">VPN ID</label>
+                        <input type="text" name="vpn_id" class="form-control" required value="{{employee.vpn_id}}" style="color:red">
+                        <br>
+                        <label for="">Employee Remarks</label>
+                         <textarea name="emp_remarks" id="" cols="30" rows="2" class="form-control" style="color:red">{{employee.emp_remarks}}</textarea>
+                        <br>
+                        <input type="hidden" name="id" value="{{employee.id}}">
+                        <input type="hidden" name="user_name" value="{{user.profile.emp_name}}" >
+                        <input type="hidden" name="user_id" value="{{user.profile.emp_id}}" >
+                        <label for="">Email ID</label>
+                        <input type="email" name="email" class="form-control" value="{{employee.email_id}}" style="color:red">
+                        <br>
+                        <input type="hidden" name="personal" id="personal" value="No">
+                        <button type="submit" class="btn btn-info form-control" value="Submit">Submit</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
