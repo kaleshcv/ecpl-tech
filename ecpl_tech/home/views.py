@@ -1461,3 +1461,41 @@ def exportData(request):
         wb.save(response)
 
         return response
+
+
+def addStatus(request):
+
+    out = OutgoingNew.objects.all()
+    rec = RecoveryNew.objects.all()
+
+    for i in out:
+        for j in rec:
+            if i.emp_id == j.emp_id:
+                if i.system_serial == j.system_serial:
+                    i.recovered = True
+                    i.save()
+
+def viewActiveList(request):
+
+    out = OutgoingNew.objects.filter(recovered=False)
+    out_count = OutgoingNew.objects.filter(recovered=False).count()
+    data = {'out':out,'out_count':out_count}
+
+    return render(request,'active-employees.html',data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

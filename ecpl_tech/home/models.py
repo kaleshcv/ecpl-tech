@@ -500,7 +500,77 @@ class ProfileAdd(models.Model):
 
 
 
+class OutgoingNew(models.Model):
+    date = models.CharField(max_length=100,null=True)
+    policy_no = models.CharField(max_length=100,null=True)
+    it_name = models.CharField(max_length=100,null=True)
+    make_model = models.CharField(max_length=100,null=True)
+    emp_name = models.CharField(max_length=100,null=True)
+    emp_id = models.IntegerField(null=True)
+    mobile_no = models.CharField(max_length=100,null=True)
+    campaign = models.CharField(max_length=100,null=True)
+    system_name = models.CharField(max_length=100,null=True)
+    processor = models.CharField(max_length=100,null=True)
+    system_serial = models.CharField(max_length=100,null=True)
+    hard_disc = models.CharField(max_length=100,null=True)
+    hard_disc_serial = models.CharField(max_length=100,null=True)
+    hard_disc_size = models.CharField(max_length=100,null=True)
+    ram = models.CharField(max_length=100,null=True)
+    headset = models.CharField(max_length=100,null=True)
+    headset_serial = models.CharField(max_length=100,null=True)
+    monitor = models.CharField(max_length=100,null=True)
+    status = models.CharField(max_length=100,null=True)
+    pc_laptop = models.CharField(max_length=100,null=True)
+    remarks = models.CharField(max_length=100,null=True)
+    recovered = models.BooleanField(default=False)
 
+
+
+class RecoveryNew(models.Model):
+    date = models.CharField(max_length=100, null=True)
+    it_name = models.CharField(max_length=100, null=True)
+    policy_no = models.CharField(max_length=100, null=True)
+    make_model = models.CharField(max_length=100, null=True)
+    system_name = models.CharField(max_length=100, null=True)
+    emp_id = models.IntegerField(null=True)
+    emp_name = models.CharField(max_length=100, null=True)
+    campaign = models.CharField(max_length=100, null=True)
+    system_serial = models.CharField(max_length=100, null=True)
+    processor = models.CharField(max_length=100, null=True)
+    hard_disc_serial = models.CharField(max_length=100, null=True)
+    ram = models.CharField(max_length=100, null=True)
+    headset = models.CharField(max_length=100, null=True)
+    headset_serial = models.CharField(max_length=100, null=True)
+    monitor = models.CharField(max_length=100, null=True)
+    status = models.CharField(max_length=100, null=True)
+    pc_laptop = models.CharField(max_length=100, null=True)
+    remarks = models.CharField(max_length=100, null=True)
+    emp_status = models.CharField(max_length=100, null=True)
+
+
+
+class Newtdata(models.Model):
+    date = models.DateField(null=True)
+    policy_no = models.CharField(max_length=100, null=True)
+    it_name = models.CharField(max_length=100, null=True)
+    make_model = models.CharField(max_length=100, null=True)
+    emp_name = models.CharField(max_length=100, null=True)
+    emp_id = models.IntegerField(null=True)
+    mobile_no = models.IntegerField(null=True)
+    campaign = models.CharField(max_length=100, null=True)
+    system_name = models.CharField(max_length=100, null=True)
+    processor = models.CharField(max_length=100, null=True)
+    system_serial = models.CharField(max_length=100, null=True)
+    hard_disc = models.CharField(max_length=100, null=True)
+    hard_disc_serial = models.CharField(max_length=100, null=True)
+    hard_disc_size = models.CharField(max_length=100, null=True)
+    ram = models.CharField(max_length=100, null=True)
+    headset = models.CharField(max_length=100, null=True)
+    headset_serial = models.CharField(max_length=100, null=True)
+    monitor = models.CharField(max_length=100, null=True)
+    status = models.CharField(max_length=100, null=True)
+    pc_laptop = models.CharField(max_length=100, null=True)
+    remarks = models.CharField(max_length=100, null=True)
 
 
 

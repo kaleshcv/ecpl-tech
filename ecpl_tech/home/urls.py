@@ -62,7 +62,8 @@ urlpatterns = [
     path('return-from-service',returnFromService),
     path('return-service-submit',returnServiceSubmit),
 
-
+    path('add-status',addStatus),
+    path('view-active-list',viewActiveList),
 
    # path('return-from-service/<int:pk>',retunFromService),
 
