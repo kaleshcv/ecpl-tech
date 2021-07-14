@@ -19,6 +19,8 @@ urlpatterns = [
     path('employee-not-available',empNotAvailable),
     path('view-emp-data',viewEmployeeData),
 
+    path('export-data',exportData),
+
     path('addtoUserModel',addtoUserModel),
     path('view-emp-details',viewEmployeeDetailsAll),
 
@@ -59,6 +61,7 @@ urlpatterns = [
     path('return-submit',returnSubmit),
     path('return-from-service',returnFromService),
     path('return-service-submit',returnServiceSubmit),
+
 
 
    # path('return-from-service/<int:pk>',retunFromService),

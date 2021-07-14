@@ -1,4 +1,6 @@
+import xlwt
 from django.db.models import Count
+from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
@@ -1409,3 +1411,53 @@ def viewEmployeeDetailsAll(request):
         employee = Employees.objects.get(emp_id = emp_id)
         data = {'employee':employee}
         return render(request,'employee-detail.html',data)
+
+
+def exportData(request):
+
+    if request.method == 'POST':
+
+        response = HttpResponse(content_type='application/ms-excel')
+        response['Content-Disposition'] = 'attachment; filename="audit-report.xls"'
+        wb = xlwt.Workbook(encoding='utf-8')
+        ws = wb.add_sheet('Users Data')  # this will make a sheet named Users Data
+        # Sheet header, first row
+        row_num = 0
+        font_style = xlwt.XFStyle()
+        font_style.font.bold = True
+        columns = ['emp_id','emp_name','shift','doj','status','gender','process','emp_desi','personal_no',
+                   'emergency_no','aadhar_no','email_id','address','no_of_systems','pc_or_lap',
+                   'make','model','serial','ram','hard_disc','system_remarks','inch_18','inch_19','inch_20',
+                   'inch_24','monitor_remarks','head_company','head_own','head_remarks','keyboard',
+                   'mouse','webcam','other_remarks','sophos','connectwise','vpn','vpn_id','call_date',
+                   'called_by','called_by_id','emp_remarks','data_collected','agent_remarks','number_error',
+                   'shift_error','other_error','other_error_remarks','employee_resigned','personal_laptop',
+                   'system_returned'
+                   ]
+
+        for col_num in range(len(columns)):
+            ws.write(row_num, col_num, columns[col_num], font_style)  # at 0 row 0 column
+
+        # Sheet body, remaining rows
+        font_style = xlwt.XFStyle()
+        rows = Employees.objects.all().values_list('emp_id','emp_name','shift','doj','status','gender','process','emp_desi','personal_no',
+                   'emergency_no','aadhar_no','email_id','address','no_of_systems','pc_or_lap',
+                   'make','model','serial','ram','hard_disc','system_remarks','inch_18','inch_19','inch_20',
+                   'inch_24','monitor_remarks','head_company','head_own','head_remarks','keyboard',
+                   'mouse','webcam','other_remarks','sophos','connectwise','vpn','vpn_id','call_date',
+                   'called_by','called_by_id','emp_remarks','data_collected','agent_remarks','number_error',
+                   'shift_error','other_error','other_error_remarks','employee_resigned','personal_laptop',
+                   'system_returned')
+
+        import datetime
+        rows = [[x.strftime("%Y-%m-%d %H:%M") if isinstance(x, datetime.datetime) else x for x in row] for row in
+                rows]
+
+        for row in rows:
+            row_num += 1
+            for col_num in range(len(row)):
+                ws.write(row_num, col_num, row[col_num], font_style)
+
+        wb.save(response)
+
+        return response
