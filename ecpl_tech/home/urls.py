@@ -64,6 +64,8 @@ urlpatterns = [
 
     path('add-status',addStatus),
     path('view-active-list',viewActiveList),
+    path('individual-count',individualCount),
+    path('employee-data/<int:empid>',employeeWiseSystems),
 
    # path('return-from-service/<int:pk>',retunFromService),
 

@@ -1483,9 +1483,20 @@ def viewActiveList(request):
 
     return render(request,'active-employees.html',data)
 
+def individualCount(request):
+
+    out = OutgoingNew.objects.filter(recovered=False).values('emp_name','emp_id').annotate(dcount=Count('emp_id')).order_by('-dcount')
+    data = {'out': out,}
+    return render(request,'individual-count.html',data)
 
 
+def employeeWiseSystems(request,empid):
 
+    emp_id = empid
+    out = OutgoingNew.objects.filter(emp_id=emp_id,recovered=False)
+    out_count = OutgoingNew.objects.filter(emp_id=emp_id, recovered=False).count()
+    data = {'out':out,'emp_name':emp_id,'count':out_count}
+    return render(request, 'individual-detailed.html',data)
 
 
 
